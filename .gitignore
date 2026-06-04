@@ -1,0 +1,15 @@
+# Object files
+*.o
+
+# Binaries
+test_lookup
+test_hash
+benchmark
+ttt_main
+c4_main
+
+# Debug files
+_debug_*
+
+# OS
+.DS_Store
