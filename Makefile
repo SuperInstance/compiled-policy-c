@@ -28,12 +28,17 @@ test_lookup: test_lookup.c compiled_policy.o $(LIB_HDR)
 test_hash: test_hash.c compiled_policy.o $(LIB_HDR)
 	$(CC) $(CFLAGS) -o $@ test_hash.c compiled_policy.o $(LDFLAGS)
 
-test: test_lookup test_hash
+test_cross_language: test_cross_language.c compiled_policy.o $(LIB_HDR)
+	$(CC) $(CFLAGS) -o $@ test_cross_language.c compiled_policy.o $(LDFLAGS)
+
+test: test_lookup test_hash test_cross_language
 	@echo ""
 	@echo "=== Running tests ==="
 	@./test_hash
 	@echo ""
 	@./test_lookup
+	@echo ""
+	@./test_cross_language
 
 # --- Benchmarks ---
 benchmark: benchmark.c compiled_policy.o $(LIB_HDR)
@@ -60,7 +65,7 @@ examples: ttt_main c4_main
 
 # --- Clean ---
 clean:
-	rm -f *.o test_lookup test_hash benchmark ttt_main c4_main
+	rm -f *.o test_lookup test_hash test_cross_language benchmark ttt_main c4_main
 
 # --- Cross-compilation helpers ---
 esp8266:
