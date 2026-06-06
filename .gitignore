@@ -13,3 +13,5 @@ _debug_*
 
 # OS
 .DS_Store
+target/
+Cargo.lock
